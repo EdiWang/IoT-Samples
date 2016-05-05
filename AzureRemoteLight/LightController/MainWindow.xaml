@@ -1,0 +1,15 @@
+﻿<Window x:Class="LightController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LightController"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="BtnTurnOn" Content="Turn Light On" HorizontalAlignment="Center" Click="BtnTurnOn_OnClick" />
+            <Button x:Name="BtnTurnOff" Content="Turn Light Off" Margin="0,10,0,0" Click="BtnTurnOff_OnClick" />
+        </StackPanel>
+    </Grid>
+</Window>

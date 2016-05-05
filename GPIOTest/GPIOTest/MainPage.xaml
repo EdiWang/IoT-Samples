@@ -1,0 +1,113 @@
+﻿<Page
+    x:Class="GPIOTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GPIOTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="Play" Command="{Binding CommandPlayLEDRoll}">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE781;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Icon="Cancel" Label="Exit" />
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Image Source="Assets/Win81-Robots.png" 
+               Stretch="UniformToFill"
+               Grid.Row="0" Grid.RowSpan="4" />
+        
+        <TextBlock Grid.Row="0" Text="Raspberry Pi 3 GPIO Test" Margin="10" FontSize="26" TextAlignment="Center" />
+
+        <TextBlock Grid.Row="1" Text="{Binding Message}" TextAlignment="Center" Foreground="DarkGray" />
+
+        <ToggleSwitch Grid.Row="2" 
+                      HorizontalAlignment="Center" 
+                      OnContent="Output High" 
+                      OffContent="Output Low" 
+                      IsOn="{Binding IsOutputHighChecked, Mode=TwoWay}" />
+
+        <Border Grid.Row="3" BorderBrush="#666" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ScrollViewer>
+                <Grid Padding="12" Background="#66000000">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid.Resources>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="FontFamily" Value="Consolas" />
+                        </Style>
+                    </Grid.Resources>
+
+                    <StackPanel Grid.Column="0" FlowDirection="RightToLeft">
+                        <StackPanel.Resources>
+                            <Style TargetType="CheckBox">
+                                <Setter Property="FlowDirection" Value="RightToLeft" />
+                            </Style>
+                        </StackPanel.Resources>
+                        
+                        <CheckBox Content="#01 3.3v DC" IsEnabled="False" />
+                        <CheckBox Content="#03 GPIO 02 (SDA1, I2C)" IsEnabled="False" />
+                        <CheckBox Content="#05 GPIO 03 (SCL1, I2C)" IsEnabled="False" />
+                        <CheckBox Content="#07 GPIO 04 (GPIO_GCLK)" IsChecked="{Binding GPIO_04, Mode=TwoWay}" Foreground="LimeGreen" />
+                        <CheckBox Content="#09 GROUND" IsEnabled="False" />
+                        <CheckBox Content="#11 GPIO 17 (GPIO_GEN0)" IsEnabled="False"/>
+                        <CheckBox Content="#13 GPIO 27 (GPIO_GEN2)" IsEnabled="False"/>
+                        <CheckBox Content="#15 GPIO 22 (GPIO_GEN3)" IsEnabled="False"/>
+                        <CheckBox Content="#17 3.3v DC" IsEnabled="False" />
+                        <CheckBox Content="#19 GPIO 10 (SPI_MOSI)" IsEnabled="False"/>
+                        <CheckBox Content="#21 GPIO 9 (SPI_MISO)" IsEnabled="False"/>
+                        <CheckBox Content="#23 GPIO 11 (SPI_CLK)" IsEnabled="False"/>
+                        <CheckBox Content="#25 GROUND" IsEnabled="False"/>
+                        <CheckBox Content="#27 ID_SD (I2C ID EEPROM)" IsEnabled="False"/>
+                        <CheckBox Content="#29 GPIO 05" Foreground="LimeGreen" IsChecked="{Binding GPIO_05, Mode=TwoWay}" />
+                        <CheckBox Content="#31 GPIO 06" Foreground="LimeGreen" IsChecked="{Binding GPIO_06, Mode=TwoWay}" />
+                        <CheckBox Content="#33 GPIO 13" Foreground="LimeGreen" IsChecked="{Binding GPIO_13, Mode=TwoWay}" />
+                        <CheckBox Content="#35 GPIO 19" Foreground="LimeGreen" IsChecked="{Binding GPIO_19, Mode=TwoWay}" />
+                        <CheckBox Content="#37 GPIO 26" Foreground="LimeGreen" IsChecked="{Binding GPIO_26, Mode=TwoWay}" />
+                        <CheckBox Content="#39 GROUND" IsEnabled="False" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" FlowDirection="LeftToRight">
+                        <CheckBox Content="#02 5v DC" IsEnabled="False" />
+                        <CheckBox Content="#04 5v DC" IsEnabled="False" />
+                        <CheckBox Content="#06 GROUND" IsEnabled="False" />
+                        <CheckBox Content="#08 GPIO14 (TXD0)" IsEnabled="False" />
+                        <CheckBox Content="#10 GPIO15 (RXD0)" IsEnabled="False" />
+                        <CheckBox Content="#12 GPIO18 (GPIO_GEN1)" IsEnabled="False" />
+                        <CheckBox Content="#14 GROUND" IsEnabled="False" />
+                        <CheckBox Content="#16 GPIO23 (GPIO_GEN4)" IsEnabled="False" />
+                        <CheckBox Content="#18 GPIO24 (GPIO_GEN5)" IsEnabled="False" />
+                        <CheckBox Content="#20 GROUND" IsEnabled="False" />
+                        <CheckBox Content="#25 GPIO24 (GPIO_GEN6)" IsEnabled="False" />
+                        <CheckBox Content="#24 GPIO08 (SPI_CE0_N)" IsEnabled="False" />
+                        <CheckBox Content="#26 GPIO07 (SPI_CE1_N)" IsEnabled="False" />
+                        <CheckBox Content="#28 ID_SC (I2C ID EEPROM)" IsEnabled="False" />
+                        <CheckBox Content="#30 GROUND" IsEnabled="False" />
+                        <CheckBox Content="#32 GPIO12" Foreground="LimeGreen" IsChecked="{Binding GPIO_12, Mode=TwoWay}" />
+                        <CheckBox Content="#34 GROUND" IsEnabled="False" />
+                        <CheckBox Content="#36 GPIO16" Foreground="LimeGreen" IsChecked="{Binding GPIO_16, Mode=TwoWay}" />
+                        <CheckBox Content="#38 GPIO20" Foreground="LimeGreen" IsChecked="{Binding GPIO_20, Mode=TwoWay}" />
+                        <CheckBox Content="#40 GPIO21" Foreground="LimeGreen" IsChecked="{Binding GPIO_21, Mode=TwoWay}" />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="AzureRemoteLight.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureRemoteLight"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Image Source="Assets/cloud-hero.png" Grid.Row="0" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Windows 10 IoT + Microsoft Azure" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="Remote Light Control" Style="{StaticResource SubheaderTextBlockStyle}" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/Windows_Insiders_Flag.png" HorizontalAlignment="Right" Height="300" VerticalAlignment="Bottom" />
+            
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Text="Azure IoT Hub Connection: " />
+                <TextBlock Text="{Binding IsAzureConnected}" />
+            </StackPanel>
+            
+            <Border Grid.Row="1" BorderBrush="#CCC" BorderThickness="1" Margin="0,10,0,0" Padding="10">
+                <TextBlock TextWrapping="Wrap" Text="{Binding CloudToDeviceLog}" Foreground="#CCC" FontFamily="Consolas" />
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
