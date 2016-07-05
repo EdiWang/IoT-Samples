@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="MorseCode.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MorseCode"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Windows 10 IoT Morse Code Sample" Style="{ThemeResource HeaderTextBlockStyle}" Margin="0,0,0,20" />
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBox Header="Message" x:Name="TxtSource" Text="SOS" />
+                <Button x:Name="BtnBeepMorse" Content="Beep" Click="BtnBeepMorse_OnClick" />
+            </StackPanel>
+            
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="#CCC" Padding="10" Margin="0,10,0,0">
+                <TextBlock x:Name="TxtMessage" TextWrapping="Wrap" />
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
