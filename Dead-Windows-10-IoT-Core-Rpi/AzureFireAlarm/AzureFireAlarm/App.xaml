@@ -1,0 +1,16 @@
+﻿<Application
+    x:Class="AzureFireAlarm.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureFireAlarm"
+    xmlns:viewModel="using:AzureFireAlarm.ViewModel"
+    xmlns:converters="using:Edi.UWP.Helpers.Converters"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <viewModel:ViewModelLocator x:Key="Locator" xmlns:vm="using:AzureFireAlarm.ViewModel" />
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:ColorHexStringToBrushConverter x:Key="ColorHexStringToBrushConverter" />
+        <converters:ColorHexStringToColorConverter x:Key="ColorHexStringToColorConverter" />
+    </Application.Resources>
+</Application>

@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="Edi.RPi.S3003Servo.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Edi.RPi.S3003Servo"
+    RequestedTheme="Light">
+
+</Application>
