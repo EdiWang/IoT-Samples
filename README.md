@@ -1,4 +1,5 @@
-# Windows-IoT-Projects
-Windows 10 IoT Core Projects and Demos
+# IoT Samples
 
-This is the archive of my Windows 10 IoT Projects
+My IoT code samples including archived leagcy UWP on Windows 10 IoT Core, some .NET Core on Linux, some python, on Raspberry Pi or Arduino.
+
+Windows 10 IoT Core isn't active any more, please forget it.
