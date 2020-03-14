@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="MCP3008JoyStick.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MCP3008JoyStick"
+    RequestedTheme="Light">
+
+</Application>
