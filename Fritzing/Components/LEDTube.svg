@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="110px" height="50px" viewBox="0 0 110 50" enable-background="new 0 0 110 50" xml:space="preserve">
+<rect fill="#092643" width="110" height="50"/>
+<g>
+	<g id="breadboard">
+		<circle id="connector0pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="36.355" cy="36.144" r="1.517"/>
+		<circle id="connector1pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="41.902" cy="36.144" r="1.517"/>
+		<circle id="connector2pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="47.446" cy="36.144" r="1.517"/>
+		<circle id="connector3pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="52.991" cy="36.144" r="1.517"/>
+		<circle id="connector4pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="58.536" cy="36.144" r="1.517"/>
+		<circle id="connector5pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="64.081" cy="36.144" r="1.517"/>
+		<circle id="connector6pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="69.626" cy="36.144" r="1.517"/>
+		<circle id="connector7pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="75.172" cy="36.144" r="1.517"/>
+		<circle id="connector8pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="75.172" cy="13.964" r="1.517"/>
+		<circle id="connector9pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="64.081" cy="13.964" r="1.517"/>
+		<circle id="connector10pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="52.991" cy="13.964" r="1.517"/>
+		<circle id="connector11pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="47.446" cy="13.964" r="1.517"/>
+		<circle id="connector12pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="41.902" cy="13.964" r="1.517"/>
+		<circle id="connector13pin" fill="none" stroke="#988F6B" stroke-width="0.4898" cx="36.355" cy="13.964" r="1.517"/>
+		<polygon fill="#323232" points="11.679,10.857 98.987,10.857 99.85,11.627 99.85,39.249 12.449,39.249 11.679,38.242 		"/>
+		<polygon fill="#727171" points="19.164,13.547 28.747,13.547 29.384,14.185 28.105,16.101 19.799,16.101 18.526,14.185 		"/>
+		<polygon fill="#E0251C" points="30.023,14.822 30.663,16.101 29.384,23.13 28.105,24.405 26.829,23.13 28.105,16.738 		"/>
+		<polygon fill="#E0251C" points="28.105,25.045 28.747,26.321 27.468,33.349 26.189,34.628 24.913,33.349 26.189,26.963 		"/>
+		<polygon fill="#727171" points="24.913,35.906 15.33,35.906 14.691,35.265 15.967,33.349 24.274,33.349 25.552,35.267 		"/>
+		<polygon fill="#727171" points="14.051,34.628 13.413,33.349 14.691,26.321 15.967,25.045 17.246,26.321 15.967,32.71 		"/>
+		<polygon fill="#727171" points="15.967,24.405 15.33,23.13 16.609,16.101 17.885,14.822 19.164,16.101 17.885,22.491 		"/>
+		<polyline fill="#727171" points="16.609,24.405 17.885,23.13 26.189,23.13 27.468,24.405 26.189,25.683 17.885,25.683 		"/>
+		<circle fill="#646464" cx="29.111" cy="34.625" r="1.346"/>
+		<polygon fill="#E0251C" points="41.335,13.547 50.919,13.547 51.556,14.185 50.276,16.101 41.973,16.101 40.696,14.185 		"/>
+		<polygon fill="#E0251C" points="52.194,14.822 52.834,16.101 51.556,23.13 50.276,24.405 49.002,23.13 50.276,16.738 		"/>
+		<polygon fill="#E0251C" points="50.276,25.045 50.919,26.321 49.64,33.349 48.361,34.628 47.084,33.349 48.361,26.963 		"/>
+		<polygon fill="#E60012" points="47.084,35.906 37.502,35.906 36.862,35.265 38.141,33.349 46.447,33.349 47.722,35.267 		"/>
+		<polygon fill="#E0251C" points="36.223,34.628 35.585,33.349 36.862,26.321 38.141,25.045 39.418,26.321 38.141,32.71 		"/>
+		<polygon fill="#E0251C" points="38.141,24.405 37.502,23.13 38.78,16.101 40.057,14.822 41.335,16.101 40.057,22.491 		"/>
+		<polyline fill="#727171" points="38.78,24.405 40.057,23.13 48.361,23.13 49.64,24.405 48.361,25.683 40.057,25.683 		"/>
+		<circle fill="#646464" cx="51.282" cy="34.625" r="1.346"/>
+		<polygon fill="#E60012" points="63.515,13.547 73.1,13.547 73.737,14.185 72.459,16.101 64.155,16.101 62.876,14.185 		"/>
+		<polygon fill="#E60012" points="74.376,14.822 75.014,16.101 73.737,23.13 72.459,24.405 71.181,23.13 72.459,16.738 		"/>
+		<polygon fill="#646464" points="72.459,25.045 73.1,26.321 71.821,33.349 70.543,34.628 69.265,33.349 70.543,26.963 		"/>
+		<polygon fill="#E0251C" points="69.265,35.906 59.682,35.906 59.043,35.265 60.321,33.349 68.626,33.349 69.904,35.267 		"/>
+		<polygon fill="#E0251C" points="58.405,34.628 57.767,33.349 59.043,26.321 60.321,25.045 61.598,26.321 60.321,32.71 		"/>
+		<polygon fill="#727171" points="60.321,24.405 59.682,23.13 60.962,16.101 62.238,14.822 63.515,16.101 62.238,22.491 		"/>
+		<polyline fill="#E60012" points="60.962,24.405 62.238,23.13 70.543,23.13 71.821,24.405 70.543,25.683 62.238,25.683 		"/>
+		<circle fill="#646464" cx="73.463" cy="34.625" r="1.346"/>
+		<polygon fill="#727171" points="85.757,13.547 95.339,13.547 95.976,14.185 94.697,16.101 86.393,16.101 85.116,14.185 		"/>
+		<polygon fill="#E0251C" points="96.613,14.822 97.256,16.101 95.976,23.13 94.697,24.405 93.423,23.13 94.697,16.738 		"/>
+		<polygon fill="#E0251C" points="94.697,25.045 95.339,26.321 94.059,33.349 92.78,34.628 91.506,33.349 92.78,26.963 		"/>
+		<polygon fill="#727171" points="91.506,35.906 81.921,35.906 81.281,35.265 82.56,33.349 90.864,33.349 92.145,35.267 		"/>
+		<polygon fill="#727171" points="80.643,34.628 80.005,33.349 81.281,26.321 82.56,25.045 83.836,26.321 82.56,32.71 		"/>
+		<polygon fill="#E0251C" points="82.56,24.405 81.921,23.13 83.201,16.101 84.476,14.822 85.757,16.101 84.476,22.491 		"/>
+		<polyline fill="#E60012" points="83.201,24.405 84.476,23.13 92.78,23.13 94.059,24.405 92.78,25.683 84.476,25.683 		"/>
+		<circle fill="#646464" cx="95.704" cy="34.625" r="1.346"/>
+		<polygon fill="#C8C7C7" points="99.08,38.242 11.679,38.242 12.449,39.249 99.85,39.249 		"/>
+		<polygon fill="#ABABAB" points="98.987,38.242 99.85,39.249 99.85,11.627 98.987,10.857 		"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 23.3965 7.6348)" fill="#FFFFFF" font-family="'DroidSans'" font-size="4.2468">4-Bit LED Digital Tube Module</text>
+<rect x="1.001" y="11.61" fill="#FFFFFF" stroke="#F39800" stroke-miterlimit="10" width="4.94" height="4.94"/>
+<rect x="0.997" y="17.381" fill="#FFFFFF" stroke="#F39800" stroke-miterlimit="10" width="4.94" height="4.94"/>
+<rect x="1.001" y="22.945" fill="#FFFFFF" stroke="#F39800" stroke-miterlimit="10" width="4.94" height="4.941"/>
+<rect x="1.001" y="28.417" fill="#FFFFFF" stroke="#F39800" stroke-miterlimit="10" width="4.94" height="4.941"/>
+<rect x="1.001" y="34.059" fill="#FFFFFF" stroke="#F39800" stroke-miterlimit="10" width="4.94" height="4.94"/>
+<text transform="matrix(0 1 -1 0 7.0088 11.6108)" fill="#F7F8F8" font-family="'DroidSans'" font-size="2.341">VCC</text>
+<text transform="matrix(0 1 -1 0 7.0088 17.3813)" fill="#F7F8F8" font-family="'DroidSans'" font-size="2.341">SCLK</text>
+<text transform="matrix(0 1 -1 0 7.0088 23.1304)" fill="#F7F8F8" font-family="'DroidSans'" font-size="2.341">RCLK</text>
+<text transform="matrix(0 1 -1 0 7.0088 29.5781)" fill="#F7F8F8" font-family="'DroidSans'" font-size="2.341">DIO</text>
+<text transform="matrix(0 1 -1 0 7.0088 34.7969)" fill="#F7F8F8" font-family="'DroidSans'" font-size="2.341">GND</text>
+<circle fill="none" cx="4.584" cy="4.498" r="3.583"/>
+</svg>
