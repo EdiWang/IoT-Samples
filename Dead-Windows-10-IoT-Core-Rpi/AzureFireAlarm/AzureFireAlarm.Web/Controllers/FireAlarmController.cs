@@ -16,7 +16,7 @@ namespace AzureFireAlarm.Web.Controllers
 
         public async Task<ActionResult> SendAlarm(bool isFire)
         {
-            string msg = isFire ? "Oh, Fuck! There's a fucking fire!" : "Fire is out.";
+            string msg = isFire ? "Oh! There's a fire!" : "Fire is out.";
             await SendNotificationAsync(msg);
             return Json(true, JsonRequestBehavior.AllowGet);
         }

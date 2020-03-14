@@ -24,11 +24,11 @@ void setup() {//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void loop() {//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // put your main code here, to run repeatedly:
-  lcd.print("Fuck the fucking"); //Output " Hello, World!!" on the first line of the LCD
+  lcd.print(" Hello, World!!"); //Output " Hello, World!!" on the first line of the LCD
   lcd.setCursor(0, 1); /*Set the (invisible) cursor on the first place second row of the LCD.
                         Cursor values are 0-indexed, 0 would the be the first place.
                         The cursor coordinates are X,Y coordinates.*/
-  lcd.print("FUCKERS!!!");
+  lcd.print("123456!!!");
   delay(1000); //Wait a second
   for (int l = 0; l < 16; l++) { //For loop. Repeating 16 times
     lcd.scrollDisplayRight(); //Scroll whole screen to the right once
