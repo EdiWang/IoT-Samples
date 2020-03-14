@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="Edi.RPi.RemoteClientRover.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Edi.RPi.RemoteClientRover"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Image Source="Assets/Windows10_rgb_Blue_D-2.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.RowSpan="3" Width="250" Margin="0,0,0,20" />
+
+        <TextBlock Grid.Row="0"
+            Text="Windows IoT Remote Client Rover" 
+            Style="{ThemeResource HeaderTextBlockStyle}"
+            HorizontalAlignment="Center" />
+
+        <TextBlock Grid.Row="1" x:Name="TxtMessage" Text="READY" Foreground="#CCC" HorizontalAlignment="Center" Margin="0,10" FontSize="22" />
+        
+        <Grid Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RelativePanel>
+                <Button x:Name="BtnForward" Margin="10" RelativePanel.AlignHorizontalCenterWithPanel="True" Click="BtnForward_Click">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE96D;" FontSize="64" />
+                </Button>
+                <Button x:Name="BtnStop" Margin="10" RelativePanel.Below="BtnForward" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        Background="DarkRed" Click="BtnStop_Click">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1F5;" FontSize="64" />
+                </Button>
+                <Button x:Name="BtnRight" Margin="10" RelativePanel.RightOf="BtnStop" RelativePanel.Below="BtnForward" Click="BtnRight_Click">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE970;" FontSize="64" />
+                </Button>
+                <Button x:Name="BtnLeft" Margin="10" RelativePanel.LeftOf="BtnStop" RelativePanel.Below="BtnForward" Click="BtnLeft_Click">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE96F;" FontSize="64"/>
+                </Button>
+                <Button x:Name="BtnBackward" Margin="10" RelativePanel.Below="BtnStop" RelativePanel.AlignHorizontalCenterWithPanel="True" Click="BtnBackward_Click">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE96E;" FontSize="64" />
+                </Button>
+            </RelativePanel>
+        </Grid>
+    </Grid>
+</Page>
