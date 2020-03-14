@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="0a524c6e-4cd7-4a9c-aae6-8320e2b79d61" Publisher="CN=Edi.Wang" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="0a524c6e-4cd7-4a9c-aae6-8320e2b79d61" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Edi.RPi.BMP180WebServer</DisplayName>
+    <PublisherDisplayName>Edi.Wang</PublisherDisplayName>
+    <Logo>Assets\NewStoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Edi.RPi.BMP180WebServer.App">
+      <uap:VisualElements DisplayName="Edi.RPi.BMP180WebServer" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Edi.RPi.BMP180WebServer" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+  </Capabilities>
+</Package>
