@@ -1,0 +1,8 @@
+#This is edited config file for main installer. Put any extra options in here.
+rpicamdir=""
+webserver="nginx"
+webport="80"
+user="Edi"
+webpasswd="Edi@2016"
+autostart="no"
+

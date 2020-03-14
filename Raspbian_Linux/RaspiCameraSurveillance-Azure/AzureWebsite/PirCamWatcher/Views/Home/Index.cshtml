@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@section scripts{
+    <script>
+        function showImage(uri) {
+            $(".img-prev-lg").html("<img src='" + uri + "' class='img-responsive' />");
+            $("#img-modal").modal();
+        }
+
+        $(function () {
+            $.getJSON("Home/GetImages",
+                function (data) {
+                    var items = [];
+                    $.each(data, function (k, v) {
+                        items.push(
+                            "<div class='sv-img' data-imgurl='" + v.Uri + "'>" +
+                            "<img src='" + v.Uri + "' class='img-responsive' />" +
+                            "<div class='sv-date'>" + new Date(parseInt(v.DateModified.substr(6))) + "</div>" +
+                            "</div>");
+                    });
+
+                    $("<div />", {
+                        "class": "img-container",
+                        html: items.join("")
+                    }).appendTo(".gallery-display");
+                }).done(function () {
+                    $(".sv-img").click(function () {
+                        var uri = $(this).data('imgurl');
+                        showImage(uri);
+                    });
+                });
+        });
+    </script>
+}
+
+<h1 class="page-header">
+    Azure Home Surveillance
+    <small>Raspberry Pi PIR Motion Camera</small>
+</h1>
+
+<section class="gallery-display"></section>
+
+<div id="img-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content img-prev-lg">
+
+        </div>
+    </div>
+</div>

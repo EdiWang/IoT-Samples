@@ -1,0 +1,168 @@
++++ readlink -f ./install.sh
+++ dirname /home/pi/RPi_Cam_Web_Interface/install.sh
++ cd /home/pi/RPi_Cam_Web_Interface
+++ dpkg-query -W '-f=${Status}' dialog
+++ grep -c 'ok installed'
++ '[' 1 -eq 0 ']'
++ color_red='tput setaf 1'
++ color_green='tput setaf 2'
++ color_reset='tput sgr0'
++ versionfile=./www/config.php
+++ cat ./www/config.php
+++ cut -d \' -f4
+++ grep ''\''APP_VERSION'\'''
++ version=v6.2.11
++ backtitle='Copyright (c) 2015, Bob Tidey. RPi Cam v6.2.11'
++ '[' '!' -e ./config.txt ']'
++ source ./config.txt
+++ rpicamdir=
+++ webserver=nginx
+++ webport=80
+++ user=Edi
+++ webpasswd=Edi@2016
+++ autostart=no
++ rpicamdirold=
++ '[' '!' '' == '' ']'
++ rm exitfile.txt
++ '[' 0 -eq 0 ']'
++ exec
++ read -r rpicamdir
++ dialog --separate-widget '
+' --title 'Configuration Options' --backtitle 'Copyright (c) 2015, Bob Tidey. RPi Cam v6.2.11' --form '' 0 0 0 'Cam subfolder:' 1 1 '' 1 32 15 0 'Autostart:(yes/no)' 2 1 no 2 32 15 0 'Server:(apache/nginx)' 3 1 nginx 3 32 15 0 Webport: 4 1 80 4 32 15 0 'User:(blank=nologin)' 5 1 Edi 5 32 15 0 Password: 6 1 Edi@2016 6 32 15 0
++ read -r autostart
++ read -r webserver
++ read -r webport
++ read -r user
++ read -r webpasswd
++ '[' -n 80 ']'
++ sudo echo '#This is edited config file for main installer. Put any extra options in here.'
++ sudo echo 'rpicamdir=""'
++ sudo echo 'webserver="nginx"'
++ sudo echo 'webport="80"'
++ sudo echo 'user="Edi"'
++ sudo echo 'webpasswd="Edi@2016"'
++ sudo echo 'autostart="no"'
++ sudo echo ''
++ exec
++ '[' -e exitfile.txt ']'
++ source ./config.txt
+++ rpicamdir=
+++ webserver=nginx
+++ webport=80
+++ user=Edi
+++ webpasswd=Edi@2016
+++ autostart=no
++ '[' '!' '' == '' ']'
++ rpicamdirEsc=
++ fn_stop
++ sudo killall raspimjpeg
++ sudo killall php
++ sudo killall motion
++ sudo mkdir -p /var/www/media
++ '[' '!' '' == '' ']'
++ sudo cp -r www/cam_get.php www/cam_pic_new.php www/cam_pic.php www/cmd_func.php www/cmd_pipe.php www/config.php www/convertCmd.txt www/Copyright.txt www/css www/delete.png www/fonts www/image.png www/index.php www/js www/loading.jpg www/macros www/motion.php www/pilight_off www/pipan_off www/pipan.php www/preview.php www/raspizip.sh www/schedule.php www/servo_off www/status_mjpeg.php www/status_mjpeg.txt www/timelapse.png www/unavailable.jpg www/updating.jpg www/uPresetsv2.html www/video.png /var/www/
++ '[' -e /var/www/index.html ']'
++ '[' nginx == apache ']'
++ sudo apt-get install -y nginx php5-fpm php5-cli php5-common php-apc apache2-utils gpac motion zip libav-tools gstreamer1.0-tools
++ fn_nginx
++ aconf=etc/nginx/sites-available/rpicam
++ cp etc/nginx/sites-available/rpicam.1 etc/nginx/sites-available/rpicam
++ '[' -e '\/etc/nginx/sites-available/rpicam' ']'
++ sudo mv '/etc/nginx/sites-available/*default*' etc/nginx/sites-available/
++ '[' Edi == '' ']'
++ sudo htpasswd -b -c /usr/local/.htpasswd Edi Edi@2016
++ sed -i 's/auth_basic\ .*/auth_basic "Restricted";/g' etc/nginx/sites-available/rpicam
++ sed -i 's/#auth_basic_user_file/\ auth_basic_user_file/g' etc/nginx/sites-available/rpicam
++ sudo mv etc/nginx/sites-available/rpicam /etc/nginx/sites-available/rpicam
++ sudo chmod 644 /etc/nginx/sites-available/rpicam
++ '[' '!' -e /etc/nginx/sites-enabled/rpicam ']'
++ sudo sed -i 's/worker_processes 4;/worker_processes 2;/g' /etc/nginx/nginx.conf
++ sudo sed -i 's/worker_connections 768;/worker_connections 128;/g' /etc/nginx/nginx.conf
++ sudo sed -i 's/gzip on;/gzip off;/g' /etc/nginx/nginx.conf
++ '[' '' '!=' '' ']'
++ sudo sh -c 'echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini'
++ sudo mkdir /etc/php5/conf.d
++ sudo cp etc/php5/apc.ini /etc/php5/conf.d/20-apc.ini
++ sudo chmod 644 /etc/php5/conf.d/20-apc.ini
++ sudo service nginx restart
++ sudo sed -i 's/^www-data:x.*/www-data:x:33:33:www-data:\/var\/www:\/bin\/bash/g' /etc/passwd
++ '[' '!' -e /var/www/FIFO ']'
++ sudo chmod 666 /var/www/FIFO
++ '[' '!' -e /var/www/FIFO11 ']'
++ sudo chmod 666 /var/www/FIFO11
++ '[' '!' -e /var/www/FIFO1 ']'
++ sudo chmod 666 /var/www/FIFO1
++ sudo chmod 755 /var/www/raspizip.sh
++ '[' '!' -e /var/www/cam.jpg ']'
++ sudo ln -sf /run/shm/mjpeg/cam.jpg /var/www/cam.jpg
++ '[' -e /var/www/status_mjpeg.txt ']'
++ sudo rm /var/www/status_mjpeg.txt
++ '[' '!' -e /run/shm/mjpeg/status_mjpeg.txt ']'
++ sudo chown www-data:www-data /run/shm/mjpeg/status_mjpeg.txt
++ sudo ln -sf /run/shm/mjpeg/status_mjpeg.txt /var/www/status_mjpeg.txt
++ sudo chown -R www-data:www-data /var/www
++ sudo cp etc/sudoers.d/RPI_Cam_Web_Interface /etc/sudoers.d/
++ sudo chmod 440 /etc/sudoers.d/RPI_Cam_Web_Interface
++ sudo cp -r bin/raspimjpeg /opt/vc/bin/
++ sudo chmod 755 /opt/vc/bin/raspimjpeg
++ '[' '!' -e /usr/bin/raspimjpeg ']'
++ sed -e s/www/www/ etc/raspimjpeg/raspimjpeg.1
+++ cat /proc/cmdline
+++ awk -v 'RS= ' -F= '/boardrev/ { print $2 }'
++ '[' 0xa22082 == 0x11 ']'
++ '[' -e /etc/raspimjpeg ']'
++ tput setaf 2
++ echo 'Your custom raspimjpg backed up at /etc/raspimjpeg.bak'
++ tput sgr0
++ sudo cp -r /etc/raspimjpeg /etc/raspimjpeg.bak
++ sudo cp -r etc/raspimjpeg/raspimjpeg /etc/
++ sudo chmod 644 /etc/raspimjpeg
++ '[' '!' -e /var/www/raspimjpeg ']'
++ sudo usermod -a -G video www-data
++ '[' -e /var/www/uconfig ']'
++ sudo chown www-data:www-data /var/www/uconfig
++ fn_motion
++ sudo sed -i 's/^; netcam_url.*/netcam_url/g' /etc/motion/motion.conf
++ sudo sed -i 's/^netcam_url.*/netcam_url http:\/\/localhost:80\/cam_pic.php/g' /etc/motion/motion.conf
++ '[' Edi == '' ']'
++ sudo sed -i 's/^; netcam_userpass.*/netcam_userpass/g' /etc/motion/motion.conf
++ sudo sed -i 's/^netcam_userpass.*/netcam_userpass Edi:Edi@2016/g' /etc/motion/motion.conf
++ sudo sed -i 's/^; on_event_start.*/on_event_start/g' /etc/motion/motion.conf
++ sudo sed -i 's/^on_event_start.*/on_event_start echo -n \'\''1\'\'' >\/var\/www\/FIFO1/g' /etc/motion/motion.conf
++ sudo sed -i 's/^; on_event_end.*/on_event_end/g' /etc/motion/motion.conf
++ sudo sed -i 's/^on_event_end.*/on_event_end echo -n \'\''0\'\'' >\/var\/www\/FIFO1/g' /etc/motion/motion.conf
++ sudo sed -i 's/control_port.*/control_port 6642/g' /etc/motion/motion.conf
++ sudo sed -i 's/control_html_output.*/control_html_output off/g' /etc/motion/motion.conf
++ sudo sed -i 's/^output_pictures.*/output_pictures off/g' /etc/motion/motion.conf
++ sudo sed -i 's/^ffmpeg_output_movies on/ffmpeg_output_movies off/g' /etc/motion/motion.conf
++ sudo sed -i 's/^ffmpeg_cap_new on/ffmpeg_cap_new off/g' /etc/motion/motion.conf
++ sudo sed -i 's/^stream_port.*/stream_port 0/g' /etc/motion/motion.conf
++ sudo sed -i 's/^webcam_port.*/webcam_port 0/g' /etc/motion/motion.conf
++ sudo sed -i 's/^process_id_file/; process_id_file/g' /etc/motion/motion.conf
++ sudo sed -i 's/^videodevice/; videodevice/g' /etc/motion/motion.conf
++ sudo sed -i 's/^event_gap 60/event_gap 3/g' /etc/motion/motion.conf
++ sudo chown motion:www-data /etc/motion/motion.conf
++ sudo chmod 664 /etc/motion/motion.conf
++ fn_autostart
+++ mktemp
++ tmpfile=/tmp/tmp.2Dk5j7TSfA
++ sudo sed /#START/,/#END/d /etc/rc.local
++ sudo mv /tmp/tmp.2Dk5j7TSfA /etc/rc.local
++ sudo awk '!NF {if (++n <= 1) print; next}; {n=0;print}' /etc/rc.local
++ sudo mv /tmp/tmp.2Dk5j7TSfA /etc/rc.local
++ '[' no == yes ']'
++ sudo chown root:root /etc/rc.local
++ sudo chmod 755 /etc/rc.local
++ '[' -e /var/www/uconfig ']'
++ sudo chown www-data:www-data /var/www/uconfig
++ '[' -e /var/www/schedule.php ']'
++ sudo rm /var/www/schedule.php
++ sudo sed -e s/www/www/g www/schedule.php
++ sudo mv www/schedule.php.1 /var/www/schedule.php
++ sudo chown www-data:www-data /var/www/schedule.php
++ '[' 0 -eq 0 ']'
++ fn_reboot
++ dialog --title 'Start camera system now' --backtitle 'Copyright (c) 2015, Bob Tidey. RPi Cam v6.2.11' --yesno 'Start now?' 5 33
++ response=0
++ case $response in
++ ./start.sh
