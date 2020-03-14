@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="PumpController.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PumpController"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Windows 10 IoT Core" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="Water Pump Controller" Style="{StaticResource SubheaderTextBlockStyle}" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <ToggleSwitch x:Name="PumpToggle" Header="Pump Relay on GPIO 05" OnContent="On" OffContent="Off" 
+                          IsOn="False"
+                          HorizontalAlignment="Left" VerticalAlignment="Top" 
+                          Toggled="Pump_Toggled" />
+        </Grid>
+    </Grid>
+</Page>
