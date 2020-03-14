@@ -1,0 +1,13 @@
+﻿<Application
+    x:Class="AutoPlantWateringMachine.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AutoPlantWateringMachine"
+    xmlns:viewModel="using:AutoPlantWateringMachine.ViewModel"
+    xmlns:converters="using:AutoPlantWateringMachine.Converters"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <viewModel:ViewModelLocator x:Key="Locator" xmlns:vm="using:AutoPlantWateringMachine.ViewModel" />
+        <converters:CircleStrokeDashArrayConverter x:Key="CircleStrokeDashArrayConverter" />
+    </Application.Resources>
+</Application>
