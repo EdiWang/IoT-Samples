@@ -67,18 +67,5 @@ Global
 		{8D4164D3-3240-410A-814D-837CF27D72C4} = {CF5973FA-42AA-4B12-8FF0-CEF229F304A9}
 		{75B77979-1A5A-4721-8D66-DD456ED6156B} = {53330FBD-6A9D-48B5-98D9-D8C4466377F0}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ediwang.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = AzureRemoteLight\\AzureRemoteLight.csproj
-		SccProjectTopLevelParentUniqueName0 = AzureRemoteLight.sln
-		SccProjectName0 = AzureRemoteLight
-		SccLocalPath0 = AzureRemoteLight
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = LightController\\LightController.csproj
-		SccProjectTopLevelParentUniqueName2 = IoT-AzureRemoteLight.sln
-		SccProjectName2 = LightController
-		SccLocalPath2 = LightController
-	EndGlobalSection
+	
 EndGlobal
