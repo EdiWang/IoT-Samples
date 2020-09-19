@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="PiCameraSurveillanceClient.SignIn"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiCameraSurveillanceClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Center" Margin="0,60,0,0">
+            <TextBlock Text="Making Sure It's You" Style="{StaticResource SubheaderTextBlockStyle}" Margin="0,0,0,20" />
+            <TextBlock Text="Because you are accessing sensitive information, " />
+            <TextBlock Text="We require you to verify your identity first." />
+
+            <Border x:Name="BrdNotSetupMessage" BorderThickness="1" BorderBrush="Red" Padding="10" Margin="0,20,0,0" Visibility="Collapsed">
+                <StackPanel>
+                    <TextBlock Text="Microsoft Passport is not setup!" Foreground="Red" />
+                    <TextBlock Text="Please go to Windows Settings and set up a PIN to use it." Foreground="Red" />
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="BrdFailed" BorderThickness="1" BorderBrush="Red" Padding="10" Margin="0,20,0,0" Visibility="Collapsed">
+                <StackPanel>
+                    <TextBlock Text="Validation Failed" Foreground="Red" />
+                    <TextBlock Text="Please use the correct PIN to unlock the Application" Foreground="Red" />
+                </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <Button Content="It's Me" 
+                    x:Name="BtnVerify" Click="BtnVerify_OnClick" 
+                    Background="{StaticResource SystemControlBackgroundAccentBrush}" Foreground="White" />
+                <ProgressRing x:Name="Prg" Margin="10,0,0,0" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

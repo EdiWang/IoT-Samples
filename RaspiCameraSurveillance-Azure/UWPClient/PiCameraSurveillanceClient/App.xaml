@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="PiCameraSurveillanceClient.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiCameraSurveillanceClient"
+    xmlns:converters="using:Edi.UWP.Helpers.Converters"
+    xmlns:viewModel="using:PiCameraSurveillanceClient.ViewModel"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <viewModel:ViewModelLocator x:Key="Locator" xmlns:vm="using:PiCameraSurveillanceClient.ViewModel" />
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:ColorHexStringToBrushConverter x:Key="ColorHexStringToBrushConverter" />
+        <converters:ColorHexStringToColorConverter x:Key="ColorHexStringToColorConverter" />
+        <local:SelectionChangedConverter x:Key="SelectionChangedConverter" />
+    </Application.Resources>
+</Application>

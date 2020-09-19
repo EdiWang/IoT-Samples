@@ -1,0 +1,230 @@
+﻿<Page
+    x:Class="PiCameraSurveillanceClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiCameraSurveillanceClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="Refresh" Command="{Binding CommandRefresh}" IsEnabled="{Binding IsRefereshEnabled}" />
+                <AppBarButton Icon="Setting" Label="Configuration" x:Name="BtnGoToConfig" Click="BtnGoToConfig_OnClick" />
+                <AppBarSeparator />
+                <AppBarToggleButton Label="Select" x:Name="BtnSelect" Checked="BtnSelect_OnChecked" Unchecked="BtnSelect_OnUnchecked">
+                    <AppBarToggleButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE1EF;" />
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
+                <AppBarButton Icon="Delete" IsEnabled="{Binding IsDeleteButtonEnabled}" Label="Delete" Command="{Binding CommandDelete}" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="About" x:Name="BtnAbout" Click="BtnAbout_OnClick" />
+                <AppBarButton Label="Privacy" x:Name="BtnPrivacy" Click="BtnPrivacy_OnClick" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ContentDialog x:Name="DigAbout"
+                       Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                       FullSizeDesired="False" d:IsHidden="True"
+                       Title="About" IsPrimaryButtonEnabled="True" PrimaryButtonText="OK">
+            <Grid DataContext="{Binding Source={StaticResource Locator}, Path=About}" Margin="0,10,0,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding Publisher}" />
+                    <TextBlock>
+                            <Run>Version</Run>
+                            <Run Text="{Binding Version}" /> (<Run Text="{Binding Architecture}" />)
+                    </TextBlock>
+
+                    <TextBlock x:Uid="TxtAboutText" TextWrapping="Wrap" Margin="0,20,0,10" />
+                    <HyperlinkButton x:Uid="LnkVisitBlog" Content="" NavigateUri="http://edi.wang" />
+                </StackPanel>
+            </Grid>
+        </ContentDialog>
+
+        <ContentDialog x:Name="DigPp" Grid.Row="0" Grid.RowSpan="3" IsPrimaryButtonEnabled="True" PrimaryButtonText="OK" Title="Privacy Policy" d:IsHidden="True">
+            <ContentDialog.Resources>
+                <Style TargetType="TextBlock" x:Key="Title">
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Style>
+
+                <Style TargetType="TextBlock" x:Key="Body">
+                    <Setter Property="Foreground" Value="#333" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                </Style>
+            </ContentDialog.Resources>
+            <ScrollViewer>
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock Text="What information do we collect?" Style="{StaticResource Title}" />
+                    <TextBlock Style="{StaticResource Body}" Margin="0,0,0,20">
+                    We DO NOT collect any information from you, including your Azure storage account name, key, and container name.
+                    </TextBlock>
+
+                    <TextBlock Text="Do we use cookies?" Style="{StaticResource Title}"/>
+                    <TextBlock Style="{StaticResource Body}" Margin="0,0,0,20">
+                    No, this application is not an web-based application. It does not require cookies.
+                    </TextBlock>
+
+                    <TextBlock Style="{StaticResource Title}" Text="Do we disclose any information to outside parties?" />
+                    <TextBlock Style="{StaticResource Body}" Margin="0,0,0,20">
+                        We do not sell, trade, or otherwise transfer to outside parties your personal information.
+                    </TextBlock>
+
+                    <TextBlock Text="Your Consent" Style="{StaticResource Title}" />
+                    <TextBlock Style="{StaticResource Body}" Margin="0,0,0,20">
+                        By using this App, you constent to our privacy policy.
+                    </TextBlock>
+
+                    <TextBlock Text="Changes to our privacy policy" Style="{StaticResource Title}" />
+                    <TextBlock Style="{StaticResource Body}">
+                        If we decide to change our privacy policy, we will post those changes on this page, and/or update the privacy policy modification data below.
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource Body}" Margin="0,0,0,20">
+                        This policy was last modified on 11/02/2016
+                    </TextBlock>
+
+                    <TextBlock Text="Contacting Us" Style="{StaticResource Title}" />
+                    <TextBlock Style="{StaticResource Body}">
+                    If there are any questions regarding this privacy policy you may contact us using the information below.
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource Body}" Margin="0,0,0,20">
+                    Edi.Wang@outlook.com
+                    </TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </ContentDialog>
+
+
+        <Grid Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <StackPanel Margin="10">
+                <TextBlock Text="{Binding Container.Uri}" Foreground="White" FontSize="12" Margin="0,0,0,5" Opacity="0.7" />
+                <TextBlock Text="{Binding ContainerDisplayName}" Foreground="White" FontSize="26" FontWeight="Light" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="#EEE" Height="30" Padding="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="{Binding Container.ServiceClient.Credentials.AccountName, Converter={StaticResource StringFormatConverter}, ConverterParameter='Account Name: {0}'}" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Text="{Binding ListBlobItems.Count, Converter={StaticResource StringFormatConverter}, ConverterParameter='Total Items: {0}'}" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="340" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <ProgressRing IsActive="{Binding IsBusy}" Height="60" Width="60" Foreground="#0072BC" />
+
+                <Border x:Name="BrdFirstUse" Margin="10" Visibility="Collapsed">
+                    <StackPanel>
+                        <TextBlock Text="If you haven't setup your Raspberry Pi and Azure Stroage Account. Please refer to this document: " />
+                        <HyperlinkButton NavigateUri="http://edi.wang/post/2016/8/11/raspi-azure-camera" Content="http://edi.wang/post/2016/8/11/raspi-azure-camera" />
+
+                        <TextBlock Text="After you are done, enter your Azure Storage Account configuration here: " Margin="0,0,0,10" />
+
+                        <Button x:Name="BtnConfig" Content="Go to Configuration" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Border>
+                
+<GridView x:Name="GrdResults" ItemsSource="{Binding ListBlobItems}" SelectionMode="Single" AllowDrop="True" Margin="10,10,0,0" SelectedItem="{Binding SelectedImage, Mode=TwoWay}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="SelectionChanged">
+                            <core:InvokeCommandAction Command="{Binding SelectionChangedCommand}"
+                                      InputConverter="{StaticResource SelectionChangedConverter}"
+                                      InputConverterParameter="{Binding ElementName=GrdResults}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="#888" Margin="5" Height="140" Width="200" HorizontalAlignment="Left" Padding="2" RightTapped="BrdImg_RightTapped">
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem x:Name="BtnDownload" Text="Download"
+                                                    Click="BtnDownload_Click"/>
+                                        <MenuFlyoutItem x:Name="BtnDelete" Text="Delete"
+                                                    Click="BtnDelete_Click"/>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
+
+                                <Grid>
+                                    <controls:ImageEx x:Name="ImageExControl1"
+                                          IsCacheEnabled="True"
+                                          Source="{Binding Uri}"
+                                          Stretch="UniformToFill"
+                                          PlaceholderSource="/Assets/ImageExPlaceholder.jpg"
+                                          PlaceholderStretch="UniformToFill"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" Height="140" Width="200"/>
+                                    <Border Background="#000" Opacity="0.7" Height="22" VerticalAlignment="Bottom">
+                                        <TextBlock Text="{Binding FileName}" Foreground="White" VerticalAlignment="Center" Margin="5,0,5,0" FontSize="10" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
+
+            <Grid Grid.Column="1" BorderBrush="#EEE" BorderThickness="1,0,0,0" Margin="10,0,0,0" Padding="10,0,10,0">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock" x:Key="LabelStyle">
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Margin" Value="0,0,0,5" />
+                    </Style>
+
+                    <Style TargetType="TextBlock" x:Key="ValueStyle">
+                        <Setter Property="Foreground" Value="#666" />
+                        <Setter Property="Margin" Value="0,0,0,15" />
+                        <Setter Property="TextWrapping" Value="Wrap" />
+                    </Style>
+                </Grid.Resources>
+                <StackPanel Margin="0,10,0,0">
+                    <Border BorderThickness="1" BorderBrush="#888">
+                        <Image x:Name="Img" Source="{Binding SelectedImage.Uri}" HorizontalAlignment="Stretch" MinHeight="150" Margin="0,0,0,20" />
+                    </Border>
+
+                    <TextBlock Text="File Name:" Style="{StaticResource LabelStyle}" />
+                    <TextBlock Text="{Binding SelectedImage.FileName}" Style="{StaticResource ValueStyle}"/>
+
+                    <TextBlock Text="Last Modified:" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding SelectedImage.LastModified}" Style="{StaticResource ValueStyle}"/>
+
+                    <TextBlock Text="Uri" Style="{StaticResource LabelStyle}"/>
+                    <TextBox Text="{Binding SelectedImage.Uri}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+            
+            <!--Column Grid Splitter-->
+            <controls:GridSplitter
+            Width="11"
+            Background="#CECECE"
+            GripperCursor="Default"
+            HorizontalAlignment="Left"
+            Grid.Column="1"
+            ResizeDirection="Auto"
+            ResizeBehavior="BasedOnAlignment"
+            CursorBehavior="ChangeOnSplitterHover"
+            GripperForeground="White">
+            </controls:GridSplitter>
+
+        </Grid>
+    </Grid>
+</Page>
